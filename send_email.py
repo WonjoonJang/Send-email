@@ -15,11 +15,11 @@ def sendEmail(addr):
         print("유효한 이메일 주소가 아닙니다.")
 
 message = EmailMessage()
-message.set_content("이메일 내용입니다.") # type your e-mail
+message.set_content("이메일 내용입니다.") # type your e-mail content
 
 message["Subject"] = "제목입니다." # type your subject
 message["From"] = "___" # type your e-mail address
-message["To"] = "___" # type recipient e-mail
+message["To"] = "___" # type recipient e-mail address
 
 with open("aaa.png","rb") as image: # aaa.png is an example
     image_file = image.read()
@@ -28,7 +28,7 @@ image_type = imghdr.what('aaa',image_file) # aaa is example
 message.add_attachment(image_file,maintype='image',subtype=image_type)
 
 smtp = smtplib.SMTP_SSL(SMTP_SERVER,SMTP_PORT)
-smtp.login("___","___") # type your e-mail and password
+smtp.login("___","___") # type your e-mail address and password
 
-sendEmail("___") # type your e-mail
+sendEmail("___") # type your e-mail address
 smtp.quit()
